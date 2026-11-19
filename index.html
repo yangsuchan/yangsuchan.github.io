@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Suchan Yang, undergraduate research intern at LILAB, Hankuk University of Foreign Studies. Research interests in efficient LLM training, data selection, and multimodal AI.">
+  <meta name="theme-color" content="#172c48">
+  <title>Suchan Yang — Language & AI</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#about" aria-label="Suchan Yang, home">SY<span class="wordmark-dot">.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cv" href="cv.html">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero" id="about" aria-labelledby="intro-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Language & AI · Hankuk University of Foreign Studies</p>
+        <h1 id="intro-title">Suchan Yang<span class="korean-name" lang="ko">양수찬</span></h1>
+        <p class="hero-role">Undergraduate Research Intern <span>at LILAB</span></p>
+        <p class="intro">I study how language models can learn more effectively from data, with fewer computational resources.</p>
+        <p class="hero-description">I am an undergraduate in Language & AI at Hankuk University of Foreign Studies and a research intern at the Language Intelligence Lab. My work spans instruction data selection, persona-consistent language models, and visual speech recognition.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="cv.html">View CV</a>
+          <a class="button button-secondary" href="assets/suchan-yang-portfolio.pdf">Portfolio <span class="file-label">PDF</span></a>
+          <a class="text-link" href="https://github.com/yangsuchan">GitHub</a>
+        </div>
+      </div>
+      <figure class="portrait-block">
+        <div class="portrait-frame"><img src="assets/suchan-yang.png" width="640" height="820" alt="Portrait of Suchan Yang" fetchpriority="high"></div>
+        <figcaption><span>Language Intelligence Lab · HUFS</span><span>Expected graduation · Feb 2028</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="interests" aria-labelledby="interests-title">
+      <h2 id="interests-title" class="eyebrow">Research interests</h2>
+      <div class="interest-list">
+        <span>Efficient LLMs</span><span>Data-centric AI</span><span>Multimodal intelligence</span>
+      </div>
+      <p>I am interested in graduate research on efficient learning and multimodal reasoning, building on my experience with data selection and language model post-training.</p>
+    </section>
+
+    <section class="content-section" id="research" aria-labelledby="research-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Questions, methods, and findings</p><h2 id="research-title">Selected research</h2></div>
+        <span class="section-note">Research & project work · 2025–2026</span>
+      </div>
+
+      <article class="project featured-project" aria-labelledby="shallow-title">
+        <div class="project-topline"><span class="project-area">Efficient learning / Data selection</span><span>Jul–Nov 2026</span></div>
+        <h3 id="shallow-title">ShallowFrontier: Energy-Efficient LLM Data Selection via Asymmetric Prefix Extrapolation</h3>
+        <p class="project-summary">How can we select useful instruction data while reducing the cost of selection itself? This project builds on an InstructDiff reproduction to study efficient, domain-agnostic data selection.</p>
+        <div class="research-metrics" aria-label="Reported ShallowFrontier experimental results">
+          <div><strong>10<span>%</span></strong><span>of training data used</span></div>
+          <div><strong>53<span>%</span></strong><span>lower GPU energy</span><small>vs. InstructDiff, 3 rounds</small></div>
+          <div><strong>+0.21</strong><span>average score difference</span><small>vs. each setting’s best InstructDiff round</small></div>
+        </div>
+        <p class="metric-context">Team project results across four experimental settings. Performance uses three-seed averages; GPU energy is compared with InstructDiff’s three-round run.</p>
+        <div class="project-body-grid">
+          <div><h4>Research focus</h4><p>Investigated domain bias in entropy-based selection and the mismatch between sample-based selection in the paper and token-budget selection in the implementation.</p></div>
+          <div><h4>Method</h4><p>After one calibration, group examples by question representations. Use group-level gradient noise estimates to choose a selection rule and allocate the data budget.</p></div>
+        </div>
+        <details>
+          <summary>Experimental findings & research lessons</summary>
+          <div class="details-content">
+            <p>Compared with full-data training, the project reports 61% lower mean GPU energy across the four settings. In a representative mixed-domain experiment, selected medical examples increased from 2 to 203, with MedQA scores changing from 35.27 to 57.03.</p>
+            <p>Reproduction work highlighted the need to verify that sampling units and experimental budgets match the paper before interpreting a comparison.</p>
+          </div>
+        </details>
+        <div class="project-links"><a class="text-link" href="https://github.com/hufs24lsh/data-selection">Project repository</a><a class="text-link" href="assets/suchan-yang-portfolio.pdf#page=14">Read in portfolio</a></div>
+      </article>
+
+      <article class="project" aria-labelledby="persona-title">
+        <div class="project-topline"><span class="project-area">Language models / Post-training</span><span>Aug–Nov 2026</span></div>
+        <h3 id="persona-title">Persona-Consistent Language Model Post-Training</h3>
+        <p class="project-summary">Building a language model that maintains a persona’s characteristics across multi-turn conversations, using Character-LLM-style experience reconstruction.</p>
+        <div class="project-body-grid">
+          <div><h4>My contribution</h4><p>Automated the persona data construction and training pipelines, tracing the workflow from character profiles through generated dialogue to SFT data. Applied QLoRA-based SFT and subsequent preference alignment with DPO.</p></div>
+          <div><h4>Evaluation</h4><p>The SFT model achieved a mean <strong>Neeko evaluation score of 6.52</strong>. After DPO, qualitative evaluation suggested improved persona consistency and response stability.</p></div>
+        </div>
+        <details><summary>What the evaluation revealed</summary><div class="details-content"><p>Qualitative inspection identified factual hallucinations, persona contradictions, and off-topic responses after SFT. Preference data paired more persona-consistent responses with less consistent alternatives. Follow-up qualitative evaluation examined persona consistency and response stability.</p></div></details>
+        <div class="project-links"><a class="text-link" href="assets/suchan-yang-portfolio.pdf#page=10">Read in portfolio</a><span class="muted-label">Source code access restricted</span></div>
+      </article>
+
+      <article class="project" aria-labelledby="lipreading-title">
+        <div class="project-topline"><span class="project-area">Multimodal AI / Assistive technology</span><span>Jul–Sep 2025</span></div>
+        <h3 id="lipreading-title">Lip-Reading Based Speech Recognition and Text Correction using Post Processing</h3>
+        <p class="project-summary">A visual speech recognition MVP for deaf and hard-of-hearing users, with T5-based sentence correction to improve contextually inappropriate predictions.</p>
+        <div class="project-body-grid">
+          <div><h4>My contribution · Team leader</h4><p>Led planning and role allocation, analyzed recognition errors, and implemented the T5 post-processing pipeline. Framed correction as sequence-to-sequence generation to handle insertions, deletions, and sentence restructuring.</p></div>
+          <div class="result-pair"><h4>Reported evaluation</h4><p><span>Character error rate</span><strong>19.42% → 16.96%</strong></p><p><span>BERTScore F1</span><strong>0.8857 → 0.9172</strong></p><small>12.7% relative reduction in character error rate.</small></div>
+        </div>
+        <p class="award-note">Honorable Mention · 2025 SOWON HOPE Assistive Technology Competition</p>
+        <div class="project-links"><a class="text-link" href="https://github.com/yangsuchan/lipreading-t5-postprocessing">Project repository</a><a class="text-link" href="assets/suchan-yang-portfolio.pdf#page=6">Read in portfolio</a></div>
+      </article>
+    </section>
+
+    <section class="content-section two-column-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-side"><p class="eyebrow">Learning through research</p><h2 id="experience-title">Experience</h2></div>
+      <div class="timeline">
+        <article class="timeline-item"><p class="date-label">Feb 2026 – Present</p><h3>Undergraduate Research Intern</h3><p class="organization">Language Intelligence Lab (LILAB) · HUFS</p><p>Research experience in LLM data selection, persona modeling, and the implementation and evaluation of language models.</p></article>
+      </div>
+    </section>
+
+    <section class="content-section two-column-section" id="education" aria-labelledby="education-title">
+      <div class="section-side"><p class="eyebrow">Academic background</p><h2 id="education-title">Education & beyond</h2></div>
+      <div>
+        <article class="education-entry"><p class="date-label">Mar 2024 – Expected Feb 2028</p><h3>Hankuk University of Foreign Studies</h3><p class="organization">B.S. in Language & AI</p><p class="gpa">GPA <strong>4.38 / 4.5</strong></p><p>Coursework includes machine learning, deep learning, natural language processing, language models, multimodal AI, and probability & statistics.</p></article>
+        <div class="beyond-grid"><div><h4>Technical toolkit</h4><p>Python · PyTorch · Hugging Face Transformers · Git · Linux · CUDA · Java</p></div><div><h4>Leadership</h4><p>Academic Affairs & Finance Director, AI Convergence Student Council; President, HUFS Taekwondo Club.</p></div></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div><p class="eyebrow">Looking ahead</p><h2 id="contact-title">Let’s talk about research.</h2><p>I am interested in graduate study and research opportunities in efficient language models and multimodal AI.</p></div>
+      <div class="contact-links"><a class="contact-email" href="mailto:suchan.ysc@gmail.com">suchan.ysc@gmail.com</a><div><a href="cv.html">Curriculum vitae</a><a href="https://github.com/yangsuchan">GitHub</a></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>Suchan Yang <span lang="ko">양수찬</span></span><span>Language & AI · HUFS</span><a href="#about">Back to top</a></footer>
+</body>
+</html>
